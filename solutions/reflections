@@ -1,0 +1,54 @@
+Task1
+Wie linkt man prev/next korrekt?
+Durch statische Indizes:
+prev = &nodes[i-1]
+next = &nodes[i+1]
+Der Compiler garantiert, dass nodes[] zusammenhängend im Speicher liegt.
+
+2. Vorteile statische Liste:
+Keine malloc‑Fehler
+Keine Fragmentierung
+Sehr schnell
+Ideal für feste Datenmengen
+
+3. Nachteile:
+Größe ist fix
+Keine dynamische Erweiterung
+Speicherverbrauch immer gleich groß
+
+4. Erweiterung:
+Einfach neue Felder in DNode hinzufügen, z. B.:
+
+char *label;
+int id;
+
+
+Task2
+Warum malloc?
+Liste wächst dynamisch → Anzahl der Nodes unbekannt → Speicher muss zur Laufzeit angefordert werden.
+
+2. Traversieren:
+Klassische Schleife:
+
+for (SNode *p = head; p; p = p->next)
+    printf("%p %d\n", p, p->value);
+3. Folgen von fehlendem free():
+Speicherleck
+Langfristig RAM‑Verbrauch
+Bei großen Listen → Programm instabil
+
+
+Task3
+Warum getopt flexibler als argv[1]?
+Reihenfolge egal
+Mehrere Optionen möglich
+Standardisierte Fehlerbehandlung
+Benutzerfreundlich
+
+2. Was passiert ohne -i?
+filename == NULL
+usage() wird aufgerufen → Programm beendet sich mit Fehler
+
+3. Wie prüft man, ob JSON ein Array ist?
+
+json_is_array(root)
